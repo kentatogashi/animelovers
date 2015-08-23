@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Animes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Days of the week</th>
+      <th>Start time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animes.each do |anime| 
+      anime_start_time = anime.start_time.to_s.match(/\s(.*):00\s/)[1]
+  %>
+      <tr>
+        <td><%= anime.title %></td>
+        <td><%= anime.days_of_the_week %></td>
+        <td><%= anime_start_time %></td>
+        <td><%= link_to 'Show', anime %></td>
+        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
+        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anime', new_anime_path %>

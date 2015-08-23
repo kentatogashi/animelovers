@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @anime.title %>
+</p>
+
+<p>
+  <strong>Days of the week:</strong>
+  <%= @anime.days_of_the_week %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @anime.start_time %>
+</p>
+
+<%= link_to 'Edit', edit_anime_path(@anime) %> |
+<%= link_to 'Back', animes_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@anime) do |f| %>
+  <% if @anime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anime.errors.count, "error") %> prohibited this anime from being saved:</h2>
+
+      <ul>
+      <% @anime.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :days_of_the_week %><br>
+    <%= f.text_field :days_of_the_week %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.time_select :start_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
